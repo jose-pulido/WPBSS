@@ -19,9 +19,9 @@ def generate_HTML():
 	infoWeb = "Welcome to the platform. You can upload your file for using FiSim algorithm (Fuzzy Integral Similarity), a similarity measure for comparing two motifs with one another based on the fuzzy integral with respect to a fuzzy measure. Use the drop zone for placing your file directly dragged from your file explorer or select it using the proper button."
 	info = module_Web.DIV(infoWeb, _id="info")
 	
-	img = module_Web.Image("waiting.gif", "http://127.0.0.1/html5/images/")
+	img = module_Web.Image("waiting.gif", "http://127.0.0.1/WPBSS/images/")
 
-	imgLogo = module_Web.Image("mpiib_logo.gif", "http://127.0.0.1/html5/images/", classtype="a")
+	imgLogo = module_Web.Image("mpiib_logo.gif", "http://127.0.0.1/WPBSS/images/", classtype="a")
 	divLogo = v1 = module_Web.DIV(imgLogo.write(), _id="imgLogo")
 
 	inp1 = module_Web.Input("file", _id='fileFASTA', classtype="unhidden", event='''onclick="myFASTA('validating1', 'fileFASTA', 'uploadBUTTON');"''', name="fileFASTA")	

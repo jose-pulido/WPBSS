@@ -12,7 +12,7 @@ class Image():
 	"""
 	Model for an *image tag* `<img/>` in HTML language
 	"""
-	def __init__(self, fileName, directory="http://127.0.0.1/html5/images/", classtype="", extraparams=""):
+	def __init__(self, fileName, directory="http://127.0.0.1/WPBSS/images/", classtype="", extraparams=""):
 		"""
 		Image class initializer.
 
@@ -208,10 +208,10 @@ class HTML():
 		self.title_TAB = title_TAB
 
 	def add_styleFiles(self, fileName):
-		self.style_Files.append('''http://127.0.0.1/html5/css/'''+fileName)
+		self.style_Files.append('''http://127.0.0.1/WPBSS/css/'''+fileName)
 
 	def add_scriptFiles(self, fileName):
-		self.script_Files.append('''http://127.0.0.1/html5/javascript/'''+fileName)
+		self.script_Files.append('''http://127.0.0.1/WPBSS/javascript/'''+fileName)
 
 	def addHeader(self, header):
 		self.header = header
@@ -245,7 +245,7 @@ class HTML():
 		"""
 			Prints the html code in an output file.
 		"""
-		path = "/var/www/html5/cgi-bin/"+fileName
+		path = "/var/www/WPBSS/cgi-bin/"+fileName
 		fout = open(path, 'w')
 		fout.write("%s"%(self))
 		fout.close()

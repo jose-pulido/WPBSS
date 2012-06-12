@@ -326,13 +326,13 @@ function makingFastaDIV (file, validatingDIV, fileid, uploadBUTTON, validateMess
 
 	if (validateVAR==1) {
 		document.getElementById(fileid).className = 'hidden';
-		document.getElementById(validatingDIV).innerHTML = '<img id="tick" src="http://127.0.0.1/html5/images/green_tick.jpg" />' + 
+		document.getElementById(validatingDIV).innerHTML = '<img id="tick" src="http://127.0.0.1/WPBSS/images/green_tick.jpg" />' + 
 		'&nbsp;' + file.name + validateMessage;
 		//document.getElementById(uploadBUTTON).className = 'unhidden';
 		
 		
 	}else{
-		document.getElementById(validatingDIV).innerHTML = '<img id="tick" src="http://127.0.0.1/html5/images/red_tick.jpg" />' +
+		document.getElementById(validatingDIV).innerHTML = '<img id="tick" src="http://127.0.0.1/WPBSS/images/red_tick.jpg" />' +
 		'&nbsp;' + file.name + validateMessage +" Choose another one file &nbsp;"; 
 	}
 }
