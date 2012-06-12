@@ -1,0 +1,14 @@
+\contentsline {section}{Contents}{1}{section*.2}
+\contentsline {section}{\numberline {1}Module module\_Web}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Variables}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Class Image}{2}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Methods}{2}{subsubsection.1.2.1}
+\contentsline {subsection}{\numberline {1.3}Class Input}{2}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Methods}{3}{subsubsection.1.3.1}
+\contentsline {subsection}{\numberline {1.4}Class Form}{3}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Methods}{4}{subsubsection.1.4.1}
+\contentsline {subsection}{\numberline {1.5}Class DIV}{4}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Methods}{4}{subsubsection.1.5.1}
+\contentsline {subsection}{\numberline {1.6}Class HTML}{5}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Methods}{5}{subsubsection.1.6.1}
+\contentsline {section}{Index}{7}{section*.4}

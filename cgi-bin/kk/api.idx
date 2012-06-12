@@ -1,0 +1,29 @@
+\indexentry{module\_Web \textit{(module)}|(hyperpage}{2}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Image \textit{(class)}|(hyperpage}{2}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Image \textit{(class)}!module\_Web.Image.\_\_init\_\_ \textit{(method)}|hyperpage}{2}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Image \textit{(class)}!module\_Web.Image.write \textit{(method)}|hyperpage}{2}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Image \textit{(class)}|)hyperpage}{2}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Input \textit{(class)}|(hyperpage}{2}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Input \textit{(class)}!module\_Web.Input.\_\_init\_\_ \textit{(method)}|hyperpage}{3}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Input \textit{(class)}!module\_Web.Input.write \textit{(method)}|hyperpage}{3}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Input \textit{(class)}|)hyperpage}{3}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Form \textit{(class)}|(hyperpage}{3}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Form \textit{(class)}!module\_Web.Form.\_\_init\_\_ \textit{(method)}|hyperpage}{4}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Form \textit{(class)}!module\_Web.Form.write \textit{(method)}|hyperpage}{4}
+\indexentry{module\_Web \textit{(module)}!module\_Web.Form \textit{(class)}|)hyperpage}{4}
+\indexentry{module\_Web \textit{(module)}!module\_Web.DIV \textit{(class)}|(hyperpage}{4}
+\indexentry{module\_Web \textit{(module)}!module\_Web.DIV \textit{(class)}!module\_Web.DIV.\_\_init\_\_ \textit{(method)}|hyperpage}{4}
+\indexentry{module\_Web \textit{(module)}!module\_Web.DIV \textit{(class)}!module\_Web.DIV.write \textit{(method)}|hyperpage}{4}
+\indexentry{module\_Web \textit{(module)}!module\_Web.DIV \textit{(class)}|)hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}|(hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.\_\_init\_\_ \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.addTitle \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.add\_styleFiles \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.add\_scriptFiles \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.addHeader \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.addBody \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.addFooter \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.\_\_str\_\_ \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}!module\_Web.HTML.WriteHTMLfile \textit{(method)}|hyperpage}{5}
+\indexentry{module\_Web \textit{(module)}!module\_Web.HTML \textit{(class)}|)hyperpage}{6}
+\indexentry{module\_Web \textit{(module)}|)hyperpage}{6}

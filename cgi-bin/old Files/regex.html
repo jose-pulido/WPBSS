@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>WPBSS</title>
+		<link rel="stylesheet" type="text/css" href="http://127.0.0.1/html5/css/sheet1.css" media="screen">
+		<script type="text/javascript" src="http://127.0.0.1/html5/javascript/jquery-1.7.1.js"></script>
+		<script type="text/javascript" src="http://127.0.0.1/html5/javascript/functions.js"></script>
+	</head>
+	<header>
+	 Web Platform For Binding Sites Sequences
+	 
+	</header>
+	
+	<body>
+
+		<div id="before"></div></br></br></br></br>
+		<div id="after"></div>
+	</body>
+	<script>
+	var regEx = /[^A|^C|^G|^T|^N|^-]/i;
+	var bmessage = 'AGTKKKACGRRRTAGSSSTAGBBBCTNNN---MMM';
+	document.getElementById('before').innerHTML = bmessage;
+	var amessage = bmessage.match(regEx); 
+	document.getElementById('after').innerHTML = amessage;
+	if (bmessage.match(regEx)==null){
+		var len = 0;
+	}else{
+		var len = bmessage.match(regEx).length;
+	}
+	alert(len);
+	 </script>
+
+</html>

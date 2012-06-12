@@ -1,0 +1,7 @@
+module_Web	module_Web-module.html
+module_Web.__package__	module_Web-module.html#__package__
+module_Web.Image	module_Web.Image-class.html
+module_Web.Image.__str__	module_Web.Image-class.html#__str__
+module_Web.Image.__init__	module_Web.Image-class.html#__init__
+module_Web.Input	module_Web.Input-class.html
+module_Web.Input.__init__	module_Web.Input-class.html#__init__
