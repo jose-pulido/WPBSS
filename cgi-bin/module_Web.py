@@ -140,7 +140,7 @@ class Input():
 		:exceptions:
 			- `ArgumentError`: Raised when *_type* is not on its list values.
 		"""
-		typeValues = ["file","submit","button"]
+		typeValues = ["file","submit","button", "checkbox"]
 		if _type not in typeValues:
 			raise ArgumentError("Class Input. type not in %s"%(typeValues))
 

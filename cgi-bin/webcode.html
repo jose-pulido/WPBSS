@@ -11,11 +11,7 @@ Web Platform For Binding Sites Sequences
 </header>
 
 <body>
-<div id="imgLogo">
-	<img src="http://127.0.0.1/WPBSS/images/mpiib_logo.gif" class="a"/>
-</div>
-<div id="section2">
-	<div id="tablerize">
+<div id="tablerize">
 	<table class="main">
 <tr>
 <td class="header">What is it?</td>
@@ -23,9 +19,26 @@ Web Platform For Binding Sites Sequences
 <td class="header">Try it</td>
 </tr>
 <tr>
-<td class="header"><br><b>WPBSS</b> es un Framework que, basandose en los algoritmos difusos, ofrece la posibilidad de analizar completamente experimentos biologicos reales dentro de una interfaz sencilla y amigable.</td>
-<td class="header">Sube tu archivo con la secuencia que deseas analizar. La web lo procesara en busca de alguna errata en el formato y elige contra que matrices de las disponibles quieres hacerlo. Puedes incluso utilizar tus propias matrices.</td>
-<td class="header"><br>Selecciona las opciones y sube tus archivos:<br></td>
+<td class="stuff"><b>WPBSS</b> es un Framework que, basandose en los algoritmos difusos, ofrece la posibilidad de analizar completamente experimentos biologicos reales dentro de una interfaz sencilla y amigable.</td>
+<td class="stuff">Sube tu archivo con la secuencia que deseas analizar. La web lo procesara en busca de alguna errata en el formato y elige contra que matrices de las disponibles quieres hacerlo. Puedes incluso utilizar tus propias matrices.</td>
+<td class="stuff">Selecciona las opciones y sube tus archivos:<br>
+<div id="uploadiv" class="unhidden">
+	<form enctype="multipart/form-data" action="/cgi-bin/testWeb.py" method="post" id="myform">
+		<input type="checkbox" name="transfac" value="on" checked/>
+TRANSFAC<br>
+<input type="checkbox" name="jaspar" value="on" checked/>
+JASPAR<br>
+<input type="checkbox" name="userownfile" value="on"/>
+OWN MATRIX FILE<input type="file" id="fileMATRIX" name="fileMATRIX" class="unhidden" onclick="myMATRIX('validating2', 'fileMATRIX', 'uploadBUTTON');"/>
+<div id="validating2" class="hidden">
+	Validating2<img src="http://127.0.0.1/WPBSS/images/waiting.gif"/>
+</div><br><b>SEQUENCE<input type="file" id="fileFASTA" name="fileFASTA" class="unhidden" onclick="myFASTA('validating1', 'fileFASTA', 'uploadBUTTON');"/>
+<div id="validating1" class="hidden">
+	Validating<img src="http://127.0.0.1/WPBSS/images/waiting.gif"/>
+</div><input type="submit" id="uploadBUTTON" value="Upload" class="hidden"/>
+
+	</form>
+</div></td>
 </tr>
 <tr>
 <td class="header">More Info</td>
@@ -33,35 +46,11 @@ Web Platform For Binding Sites Sequences
 <td class="header">Credits</td>
 </tr>
 <tr>
-<td class="header">Bla bla info</td>
-<td class="header">bla bla team</td>
-<td class="header">bla bla credits</td>
+<td class="stuff">Bla bla info</td>
+<td class="stuff">bla bla team</td>
+<td class="stuff">bla bla credits</td>
 </tr>
 </table>
-</div>
-
-<div id="info">
-	Welcome to the platform. You can upload your file for using FiSim algorithm (Fuzzy Integral Similarity), a similarity measure for comparing two motifs with one another based on the fuzzy integral with respect to a fuzzy measure. Use the drop zone for placing your file directly dragged from your file explorer or select it using the proper button.
-</div>
-
-<div id="upload_zone">
-	<div id="uploadiv" class="unhidden">
-	<form enctype="multipart/form-data" action="/cgi-bin/testWeb.py" method="post" id="myform">
-		FASTA<input type="file" id="fileFASTA" name="fileFASTA" class="unhidden" onclick="myFASTA('validating1', 'fileFASTA', 'uploadBUTTON');"/>
-PWM<input type="file" id="fileMATRIX" name="fileMATRIX" class="unhidden" onclick="myMATRIX('validating2', 'fileMATRIX', 'uploadBUTTON');"/>
-<input type="submit" id="uploadBUTTON" value="Upload" class="hidden"/>
-
-	</form>
-</div>
-<div id="validating" class="unhidden">
-	<div id="validating1" class="hidden">
-	Validating<img src="http://127.0.0.1/WPBSS/images/waiting.gif"/>
-</div>
-<div id="validating2" class="hidden">
-	Validating2<img src="http://127.0.0.1/WPBSS/images/waiting.gif"/>
-</div>
-</div>
-</div>
 </div>
 </body>
 

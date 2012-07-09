@@ -100,8 +100,8 @@ td.stuff {
 
 
 body {
-	/*background-color:#EDEDED;
-	color: #000000;	  */
+	/*background: #FFF5B8;
+	border: 1.5px solid #c7c7c7;*/
 	width: 1200px;
 	margin:0 auto; /*center the whole page*/
 	font: 1em 'OstrichSansRoundedMedium';
