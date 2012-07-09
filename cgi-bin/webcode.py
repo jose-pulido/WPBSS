@@ -21,21 +21,21 @@ def generate_HTML():
 	td1_2 = module_Web.Cell('How it works?', classtype="header")
 	td1_3 = module_Web.Cell('Try it', classtype="header")
 
-	info_td21 = '''<b>WPBSS</b> es un Framework que, basandose en los algoritmos difusos, ofrece la posibilidad de analizar completamente experimentos biologicos reales dentro de una interfaz sencilla y amigable.'''
+	info_td21 = '''<br><b>WPBSS</b> es un Framework que, basandose en los algoritmos difusos, ofrece la posibilidad de analizar completamente experimentos biologicos reales dentro de una interfaz sencilla y amigable.'''
 	info_td22 = '''Sube tu archivo con la secuencia que deseas analizar. La web lo procesara en busca de alguna errata en el formato y elige contra que matrices de las disponibles quieres hacerlo. Puedes incluso utilizar tus propias matrices.'''
-	info_td23 = '''Selecciona las opciones y sube tus archivos:<br>'''
+	info_td23 = '''<br>Selecciona las opciones y sube tus archivos:<br>'''
 
-	td2_1 = module_Web.Cell(info_td21, classtype="stuff")
-	td2_2 = module_Web.Cell(info_td22, classtype="stuff")
-	td2_3 = module_Web.Cell(info_td23, classtype="stuff")
+	td2_1 = module_Web.Cell(info_td21, classtype="header")
+	td2_2 = module_Web.Cell(info_td22, classtype="header")
+	td2_3 = module_Web.Cell(info_td23, classtype="header")
 
 	td3_1 = module_Web.Cell('More Info', classtype="header")
 	td3_2 = module_Web.Cell('Team', classtype="header")
 	td3_3 = module_Web.Cell('Credits', classtype="header")
 	
-	td4_1 = module_Web.Cell('Bla bla info', classtype="stuff")
-	td4_2 = module_Web.Cell('bla bla team', classtype="stuff")
-	td4_3 = module_Web.Cell('bla bla credits', classtype="stuff")
+	td4_1 = module_Web.Cell('Bla bla info', classtype="header")
+	td4_2 = module_Web.Cell('bla bla team', classtype="header")
+	td4_3 = module_Web.Cell('bla bla credits', classtype="header")
 	
 	table_content = [td1_1.write(), td1_2.write(), td1_3.write(), td2_1.write(), td2_2.write(), td2_3.write(), td3_1.write(), td3_2.write(), td3_3.write(), td4_1.write(), td4_2.write(), td4_3.write()]
 	table1x3 = module_Web.Table(4,3, table_content,  classtype="main")
@@ -79,39 +79,9 @@ def generate_HTML():
 ###################################################################
 ######################### MAIN ##################################
 def main():
-	form = cgi.FieldStorage()
+	
 	myWeb = generate_HTML()
-		
-	if ((form.has_key('fileFASTA'))and(form.has_key('fileMATRIX'))):
-		# Get filename here.
-		FASTAitem = form['fileFASTA']
-		MATRIXitem = form['fileMATRIX']
-
-		# Test if the file was uploaded
-		if (FASTAitem.filename and MATRIXitem.filename):
-			# strip leading path from file name to avoid 
-			# directory traversal attacks
-			fh_FASTA = os.path.basename(FASTAitem.filename.replace("\\", "/" ))
-			open(user_upload_path + fh_FASTA, 'wb').write(FASTAitem.file.read())
-			fh_MATRIX = os.path.basename(MATRIXitem.filename.replace("\\", "/" ))
-			open(user_upload_path + fh_MATRIX, 'wb').write(MATRIXitem.file.read())
-			message = 'The files "' + fh_FASTA + ' and '+ fh_MATRIX + '" were uploaded successfully'
-			
-		else:
-			message = 'No file was uploaded'
-			
-		fh_result = open(user_upload_path + fh_MATRIX, 'r')
-		read_data = ""		
-		for line in fh_result:
-			read_data = read_data+line+'<br>'
-		fh_result.closed
-		
-		webResults = myWeb
-		results = module_Web.DIV(message+". Aqui voy a poner los resultados:"+'<br>'+read_data, _id="results")
-		webResults.addBody(results.write())
-		print webResults
-	else:
-		print myWeb
+	myWeb.WriteHTMLfile('webcode.html')
 ###################################################################
 if __name__ == "__main__":
     main()

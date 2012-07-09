@@ -2,15 +2,88 @@
 <html>
 <head>
 	<title>WPBSS</title>
-	<link rel="stylesheet" type="text/css" href="http://127.0.0.1/html5/css/sheet1.css" media="screen">
-	<script type="text/javascript" src="http://127.0.0.1/html5/javascript/jquery-1.7.1.js"></script>
-	<script type="text/javascript" src="http://127.0.0.1/html5/javascript/funct5.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1/WPBSS/css/sheet1.css" media="screen">
+	<script type="text/javascript" src="http://127.0.0.1/WPBSS/javascript/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1/WPBSS/javascript/funct5.js"></script>
 </head>
 <header>
 Web Platform For Binding Sites Sequences
 </header>
 
 <body>
+<div id = "tablerize">
+<table class="main">
+<tr>
+<td class="header">What is it?</td>
+<td class="header">How does it work?</td>
+<td class="header">Try it</td>
+<!--<td></td>-->
+</tr>
+<tr>
+<td class="stuff">
+<br><b>WPBSS</b> es un Framework que, basándose en los algoritmos difusos, ofrece la posibilidad de analizar completamente experimentos biológicos reales dentro de una interfaz sencilla y amigable.
+
+
+</td><td class="stuff">
+<br>Sube tu archivo con la secuencia que deseas analizar. La web lo procesara en busca de alguna errata en el formato y elige contra qué matrices de las disponibles quieres hacerlo. Puedes incluso utilizar tus propias matrices.
+
+</td><td class="stuff">
+<br>Selecciona las opciones y sube tus archivos:<br>
+
+	<div id="uploadiv" class="unhidden">
+		<form enctype="multipart/form-data" action="/cgi-bin/testWeb.py" method="post" id="myform">
+
+			<input type="checkbox" name="transfac" value="on" checked/> TRANSFAC<br>
+			<input type="checkbox" name="jaspar" value="on" checked/> JASPAR<br>
+			<input type="checkbox" name="userownfile" value="on" /> OWN MATRIX FILE
+			
+			<input type="file" id="fileMATRIX" name="fileMATRIX" class="unhidden" onclick="myMATRIX('validating2', 'fileMATRIX', 'uploadBUTTON');"/>
+			<div id="validating2" class="hidden">
+				Validating2<img src="http://127.0.0.1/html5/images/waiting.gif"/>
+			</div>
+			
+			<br>
+			<b>SEQUENCE</b><input type="file" id="fileFASTA" name="fileFASTA" class="unhidden" onclick="myFASTA('validating1', 'fileFASTA', 'uploadBUTTON');"/>
+			<div id="validating1" class="hidden">
+				Validating<img src="http://127.0.0.1/html5/images/waiting.gif"/>
+			</div>
+
+			<input type="submit" id="uploadBUTTON" value="Upload" class="hidden"/>
+			
+		</form>
+	</div>	
+
+</td>
+</tr>
+<tr>
+<td class="header">More Info</td>
+<td class="header">Team</td>
+<td class="header">Credits</td>
+<!--<td></td>-->
+</tr>
+<tr>
+<td class="stuff">
+<br><b>WPBSS</b> es un Framework que, basándose en los algoritmos difusos, ofrece la posibilidad de analizar completamente experimentos biológicos reales dentro de una interfaz sencilla y amigable.
+
+
+</td><td class="stuff">
+<br>Sube tu archivo con la secuencia que deseas analizar. La web lo procesara en busca de alguna errata en el formato y elige contra qué matrices de las disponibles quieres hacerlo. Puedes incluso utilizar tus propias matrices.
+
+</td><td class="stuff">
+<br>Selecciona las opciones y sube tus archivos:<br>
+
+</td>
+</tr>
+</table>
+</div>
+
+
+
+
+
+
+<!--
+
 <div id="section2">
 	<div id="info">
 	Welcome to the platform. You can upload your file for using FiSim algorithm (Fuzzy Integral Similarity), a similarity measure for comparing two motifs with one another based on the fuzzy integral with respect to a fuzzy measure. Use the drop zone for placing your file directly dragged from your file explorer or select it using the proper button.
@@ -25,18 +98,18 @@ PWM<input type="file" id="fileMATRIX" name="fileMATRIX" class="unhidden" onclick
 
 	</form>
 </div>
-<div id="validating" class="unhidden">
-	<div id="validating1" class="hidden">
-	Validating<img src="http://127.0.0.1/html5/images/waiting.gif"/>
-</div>
-<div id="validating2" class="hidden">
-	Validating2<img src="http://127.0.0.1/html5/images/waiting.gif"/>
-</div>
-</div>
+	<div id="validating" class="unhidden">
+		<div id="validating1" class="hidden">
+			Validating<img src="http://127.0.0.1/html5/images/waiting.gif"/>
+		</div>
+		<div id="validating2" class="hidden">
+			Validating2<img src="http://127.0.0.1/html5/images/waiting.gif"/>
+		</div>
+	</div>
 </div>
 </div>
 </body>
-
+-->
 <footer>
 Max Planck Institute for Infection Biology - Charit&eacute;platz 1 - D-10117 Berlin - GERMANY
 </footer>

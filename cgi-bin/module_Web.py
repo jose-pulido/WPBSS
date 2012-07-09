@@ -6,8 +6,88 @@ __docformat__ = "restructuredtext en"
 
 QM = '"'
 
-#################### IMAGE #######################
+#################### CELL #######################
 
+class Cell():
+	"""
+	Model for a *td tag* `<td></td>` in HTML language
+	"""
+	def __init__(self, content, _id="", classtype=""):
+		"""
+		Form class initializer.
+
+			:parameters:
+				- `content`:	Content of the form. Usually with text and tags elements inside. *(string).*
+				- `_id`:		Identifier *(string).*
+				- `classtype`:	*(string).*
+		"""
+
+		self.content = content
+		self.id = _id		
+		self.classtype = classtype
+
+	def write(self):
+		"""
+		:return: *string* with the HTML code for the **DIV structure** for being used in other structures.
+		"""
+		ret = '''<td'''
+
+		if self.id:
+			ret = ret +''' id="'''+self.id+'"'
+		if self.classtype:
+			ret = ret +''' class="'''+self.classtype+'"'
+		ret = ret + '>'+self.content+'''</td>'''
+
+		return ret
+
+
+#################### TABLE #######################
+class Table():
+	"""
+	Model for a *table tag* `<table></table>` in HTML language
+	"""
+	def __init__(self, rows, columns, content, _id="", classtype=""):
+		"""
+		Form class initializer.
+
+			:parameters:
+				- `rows`:	Number of rows for the table. *(int).*
+				- `column`:	Number of coluns for the table. *(int).*
+				- `content`:	Description of each one of the cells using the *td tag*. *(list of cells).*
+				- `_id`:		Identifier *(string).*
+				- `classtype`:	*(string).*
+		"""
+		self.rows = rows
+		self.columns = columns
+		self.content = content
+		self.id = _id		
+		self.classtype = classtype
+
+	def write(self):
+		"""
+		:return: *string* with the HTML code for the **Table4x3 structure**.
+		"""
+		ret = '''<table'''
+
+		if self.id:
+			ret = ret +''' id="'''+self.id+'"'
+		if self.classtype:
+			ret = ret +''' class="'''+self.classtype+'"'
+		ret = ret + '>'+ '\n'
+		
+		cell_index = 0
+		for r in range(self.rows):
+			ret = ret + '<tr>'+ '\n'
+			for c in range(self.columns):
+				ret = ret + self.content[cell_index] + '\n'
+				cell_index +=1
+			ret = ret + '</tr>'+ '\n'
+		ret = ret +'''</table>'''
+
+		return ret
+
+
+#################### IMAGE  #######################	
 class Image():
 	"""
 	Model for an *image tag* `<img/>` in HTML language

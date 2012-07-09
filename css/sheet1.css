@@ -1,6 +1,6 @@
 /**/
 *{
-	background-color:#EDEDED;
+	/*background-color:#EDEDED;*/
 }
 header {
 	color: #000000;	  
@@ -71,13 +71,43 @@ nav li a:hover {
 	border: 1.5px solid red;
 }
 /***********************************************************/
+
+table.main {
+        width: 1200px;
+        background: #FFF5B8;
+        border-spacing: 20px;
+        border-style: none;
+}
+td {
+        width: 33%;
+        border-width: 0px;
+        border-style: none;
+        text-align: top;
+        vertical-align: top;
+}
+td.header {
+        background: #FFAD33  ;
+        padding: 5px;
+        font-size: 18px;
+        font-weight:bold
+}
+td.stuff {
+        font-size: 15px;
+}
+
+
+/***********************************************************/
+
+
 body {
-	background-color:#EDEDED;
-	color: #000000;	  
+	/*background-color:#EDEDED;
+	color: #000000;	  */
+	width: 1200px;
+	margin:0 auto; /*center the whole page*/
 	font: 1em 'OstrichSansRoundedMedium';
 	
 }
-
+/*
 #section2 {
 	clear: both;
 	margin-top: 0.5em;
@@ -110,7 +140,7 @@ body {
 	margin-left: 0.1em;
 	border: 1.5px solid #c7c7c7;
 	float: left;
-	width: 30%;
+	width: 30%;*/
 }
 
 #fileFASTA, #fileMATRIX {
@@ -186,7 +216,7 @@ body {
 
 footer {
 		clear: both;		
-		color: #ffffff;  
+		color: #000000;  
 		font: 1em 'OstrichSansRoundedMedium';
     font-weight: normal;
     text-align: center;
