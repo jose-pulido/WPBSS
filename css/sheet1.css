@@ -4,11 +4,11 @@
 }
 header {
 	color: #000000;	  
-	font: 4em 'OstrichSansRoundedMedium';
+	font: 3em 'OstrichSansRoundedMedium';
     	font-weight: normal;
     	text-align: center;
-    	margin-top: 0%;
-    	margin-bottom: 0%;
+    	margin-top: 5px;
+    	margin-bottom: 10px;
 }
 
 /******** IMAGE CODING************/
@@ -29,6 +29,10 @@ img.b {
 width:100px; 
 }
 
+img.title_img { 
+width:250px;  /*When you scale one axis specifying the number of px, HTML automatically scales the other axis*/
+
+}
 
 /********************/
 #section1 {

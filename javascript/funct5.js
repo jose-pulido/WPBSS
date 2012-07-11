@@ -123,7 +123,7 @@ function validateFasta(data, file, validatingDIV, fileid, uploadBUTTON) {
 	}
 	validateFASTA = validated;
 	makingFastaDIV(file, validatingDIV, fileid, uploadBUTTON, validateMessage, validateFASTA);
-	if ( (validateFASTA==1) &&  (validateMATRIX==1) ) {
+	if ( (validateFASTA==1) &&  (document.getElementById("fileMATRIX").className == 'hidden') ) {
 		document.getElementById(uploadBUTTON).className = 'unhidden';
 	}
 }
@@ -132,6 +132,15 @@ function validateFasta(data, file, validatingDIV, fileid, uploadBUTTON) {
 /*****************************************************************/
 /**************************MATRIX*********************************/
 /*****************************************************************/
+
+function checkingBox() {
+	
+	if (document.getElementById("fileMATRIX").className == 'hidden') {
+		document.getElementById("fileMATRIX").className = 'unhidden'
+	}else{
+		document.getElementById("fileMATRIX").className = 'hidden'
+	}
+}
 
 function myMATRIX(validatingDIV, fileid, uploadBUTTON) {
 	document.getElementById(fileid).onchange = function() {

@@ -16,14 +16,15 @@ print
 ######################### FUNCTIONS ##################################
 
 def generate_HTML():
-	
+	title_img = module_Web.Image("title_clear", classtype="title_img")	
+
 	check1 = module_Web.Input("checkbox", name="transfac", value="on", event='checked')
 	check2 = module_Web.Input("checkbox", name="jaspar", value="on", event='checked')
-	check3 = module_Web.Input("checkbox", name="userownfile", value="on")
+	check3 = module_Web.Input("checkbox", name="userownfile", value="on", event='''onclick="checkingBox();"''')
 	checkbox = check1.write()+'TRANSFAC<br>'+'\n'+check2.write()+'JASPAR<br>'+'\n'+check3.write()+'OWN MATRIX FILE'
 
 	img = module_Web.Image("waiting.gif", "http://127.0.0.1/WPBSS/images/")
-	inp1 = module_Web.Input("file", _id='fileMATRIX', classtype="unhidden", event='''onclick="myMATRIX('validating2', 'fileMATRIX', 'uploadBUTTON');"''', name="fileMATRIX")
+	inp1 = module_Web.Input("file", _id='fileMATRIX', classtype="hidden", event='''onclick="myMATRIX('validating2', 'fileMATRIX', 'uploadBUTTON');"''', name="fileMATRIX")
 	v2 = module_Web.DIV("Validating2"+img.write(), _id="validating2", classtype="hidden")
 	inp2 = module_Web.Input("file", _id='fileFASTA', classtype="unhidden", event='''onclick="myFASTA('validating1', 'fileFASTA', 'uploadBUTTON');"''', name="fileFASTA")
 	v1 = module_Web.DIV("Validating"+img.write(), _id="validating1", classtype="hidden")
@@ -33,7 +34,7 @@ def generate_HTML():
 	uploadiv = module_Web.DIV(frm.write(), _id="uploadiv", classtype="unhidden")
 
 	td1_1 = module_Web.Cell('What is it?', classtype="header")
-	td1_2 = module_Web.Cell('How it works?', classtype="header")
+	td1_2 = module_Web.Cell('How does it work?', classtype="header")
 	td1_3 = module_Web.Cell('Try it', classtype="header")
 
 	info_td21 = '''<b>WPBSS</b> es un Framework que, basandose en los algoritmos difusos, ofrece la posibilidad de analizar completamente experimentos biologicos reales dentro de una interfaz sencilla y amigable.'''
@@ -58,7 +59,7 @@ def generate_HTML():
 
 	
 	footer  = '''Max Planck Institute for Infection Biology - Charit&eacute;platz 1 - D-10117 Berlin - GERMANY'''
-	header = '''Web Platform For Binding Sites Sequences'''
+	header = title_img.write()+'''Web Platform For Binding Sites Sequences'''
 	web = module_Web.HTML()
 	web.addTitle("WPBSS")
 	web.addHeader(header)
