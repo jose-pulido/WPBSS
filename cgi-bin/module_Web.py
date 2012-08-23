@@ -87,6 +87,48 @@ class Table():
 		return ret
 
 
+#################### TABLEKK #######################
+class TableKK():
+	"""
+	Model for a *table tag* `<table></table>` in HTML language
+	"""
+	def __init__(self, content, _id="", classtype=""):
+		"""
+		Form class initializer.
+
+			:parameters:
+				- `content`:	List of rows. Each row is a list of cells (cell tag element) ).*
+				- `_id`:		Identifier *(string).*
+				- `classtype`:	*(string).*
+		"""
+		
+		self.content = content
+		self.id = _id		
+		self.classtype = classtype
+
+	def write(self):
+		"""
+		:return: *string* with the HTML code for the **Table4x3 structure**.
+		"""
+		ret = '''<table'''
+
+		if self.id:
+			ret = ret +''' id="'''+self.id+'"'
+		if self.classtype:
+			ret = ret +''' class="'''+self.classtype+'"'
+		ret = ret + '>'+ '\n'
+		
+		
+		for row in self.content:
+			ret = ret + '<tr>'+ '\n'
+			for cell in row:
+				ret = ret + cell + '\n'
+			ret = ret + '</tr>'+ '\n'
+		ret = ret +'''</table>'''
+
+		return ret
+
+
 #################### IMAGE  #######################	
 class Image():
 	"""

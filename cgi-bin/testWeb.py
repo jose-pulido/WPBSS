@@ -12,15 +12,23 @@ import cgitb; cgitb.enable()
 user_upload_path = '/tmp/'
 
 print "Content-type:text/html"
-print 
-######################### FUNCTIONS ##################################
+print
+
+
+
+######################### HTML CONSTRUCTION ##################################
+
+
+
+
+######################### HTML CONSTRUCTION ##################################
 
 def generate_HTML():
 	title_img = module_Web.Image("title_clear", classtype="title_img")	
 
-	check1 = module_Web.Input("checkbox", name="transfac", value="on", event='checked')
-	check2 = module_Web.Input("checkbox", name="jaspar", value="on", event='checked')
-	check3 = module_Web.Input("checkbox", name="userownfile", value="on", event='''onclick="checkingBox();"''')
+	check1 = module_Web.Input("checkbox", _id="transfac", value="on", event='''onclick="BlockBox('transfac');", checked''')
+	check2 = module_Web.Input("checkbox", _id="jaspar", value="on", event='''onclick="BlockBox('jaspar');", checked''')
+	check3 = module_Web.Input("checkbox", name="userownfile", value="on", event='''onclick="checkingBox('userownfile');"''')
 	checkbox = check1.write()+'TRANSFAC<br>'+'\n'+check2.write()+'JASPAR<br>'+'\n'+check3.write()+'OWN MATRIX FILE'
 
 	img = module_Web.Image("waiting.gif", "http://127.0.0.1/WPBSS/images/")
@@ -67,7 +75,7 @@ def generate_HTML():
 	web.addBody(tabletest.write())
 	web.add_styleFiles("sheet1.css")
 	web.add_scriptFiles("jquery-1.7.1.js")
-	web.add_scriptFiles("funct5.js")
+	web.add_scriptFiles("funct6.js")
 	#web.WriteHTMLfile("myWeb.html")
 	return web
 

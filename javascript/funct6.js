@@ -8,15 +8,78 @@ function abortRead() {
 	reader.abort();
 }
 
+/**************************GLOBAL VARIABLES STUFF****************************/
+
+
+function validatingTick (file, validatingDIV, fileid, uploadBUTTON, validateMessage, validateVAR) {
+
+	if (validateVAR==1) {
+		document.getElementById(fileid).className = 'hidden';
+		document.getElementById(validatingDIV).innerHTML = '<img id="tick" src="http://127.0.0.1/WPBSS/images/green_tick.jpg" />' + 
+		'&nbsp;' + file.name + validateMessage;
+		//document.getElementById(uploadBUTTON).className = 'unhidden';
+		
+		
+	}else{
+		document.getElementById(validatingDIV).innerHTML = '<img id="tick" src="http://127.0.0.1/WPBSS/images/red_tick.jpg" />' +
+		'&nbsp;' + file.name + validateMessage +" Choose another one file &nbsp;"; 
+	}
+}
+
+function showUploadButton(){
+	
+	if ((validateFASTA==1) && (validateMATRIX==1)){
+		$("#uploadBUTTON").attr("class","unhidden");
+	}
+
+	if ( (validateFASTA==1) && (($("#transfac").is(':checked')) || ($("#jaspar").is(':checked'))) ) {
+		$("#uploadBUTTON").attr("class","unhidden");
+	}
+	
+	
+}
+
+function checkingBox() {
+
+	
+	if ($('input[name=userownfile]').is(':checked')){
+		document.getElementById("fileMATRIX").className = 'unhidden'
+	}else{
+		if (!$('input[name=userownfile]').is(':checked') && (validateMATRIX==1)){
+			alert("You can not uncheck this once you have validated the matrix file. Try realoading the web.")
+			$('input[name=userownfile]').attr('checked', true);
+		}else{
+			document.getElementById("fileMATRIX").className = 'hidden'
+		}
+	}
+	
+}
+
+
+function BlockBox(myname) {
+	
+	if ((validateFASTA==1) || (validateMATRIX==1)){
+		alert("You can not uncheck this once you have validated the file. Try realoading the web.")
+		if ($("#" + myname).is(':checked')){
+			$("#" + myname).attr('checked', false);
+		}else{
+			$("#" + myname).attr('checked', true);
+		}
+	}
+}
+
+
 /**********************************************************/
 /**************************FASTA****************************/
 /**********************************************************/
 
 function myFASTA(validatingDIV, fileid, uploadBUTTON) {
+
 	document.getElementById(fileid).onchange = function() {
 		document.getElementById(validatingDIV).className = 'unhidden';
 		SlicerFASTA(this.files[0], validate_size, validatingDIV, fileid, uploadBUTTON);		
 	};
+	
 }
 	
 function SlicerFASTA(file, validate_size, validatingDIV, fileid, uploadBUTTON) {
@@ -122,11 +185,9 @@ function validateFasta(data, file, validatingDIV, fileid, uploadBUTTON) {
 			break;
 	}
 	validateFASTA = validated;
-	makingFastaDIV(file, validatingDIV, fileid, uploadBUTTON, validateMessage, validateFASTA);
-	if ( (validateFASTA==1) &&  (document.getElementById("fileMATRIX").className == 'hidden') ) {
-		document.getElementById(uploadBUTTON).className = 'unhidden';
-		
-	}
+	validatingTick(file, validatingDIV, fileid, uploadBUTTON, validateMessage, validateFASTA);
+
+	showUploadButton()
 }
 
 
@@ -134,14 +195,7 @@ function validateFasta(data, file, validatingDIV, fileid, uploadBUTTON) {
 /**************************MATRIX*********************************/
 /*****************************************************************/
 
-function checkingBox() {
-	
-	if (document.getElementById("fileMATRIX").className == 'hidden') {
-		document.getElementById("fileMATRIX").className = 'unhidden'
-	}else{
-		document.getElementById("fileMATRIX").className = 'hidden'
-	}
-}
+
 
 function myMATRIX(validatingDIV, fileid, uploadBUTTON) {
 	document.getElementById(fileid).onchange = function() {
@@ -323,26 +377,8 @@ function validateMatrix(data, file, validatingDIV, fileid, uploadBUTTON) {
 			break;
 	}
 	validateMATRIX = stillOK;
-	makingFastaDIV(file, validatingDIV, fileid, uploadBUTTON, validateMessage, validateMATRIX);
-	if ( (validateFASTA==1) && (validateMATRIX==1) ) {
-			document.getElementById(uploadBUTTON).className = 'unhidden';
-	}
+	validatingTick(file, validatingDIV, fileid, uploadBUTTON, validateMessage, validateMATRIX);
+	showUploadButton()
 }
 
-/**************************GLOBAL VARIABLES STUFF****************************/
 
-
-function makingFastaDIV (file, validatingDIV, fileid, uploadBUTTON, validateMessage, validateVAR) {
-
-	if (validateVAR==1) {
-		document.getElementById(fileid).className = 'hidden';
-		document.getElementById(validatingDIV).innerHTML = '<img id="tick" src="http://127.0.0.1/WPBSS/images/green_tick.jpg" />' + 
-		'&nbsp;' + file.name + validateMessage;
-		//document.getElementById(uploadBUTTON).className = 'unhidden';
-		
-		
-	}else{
-		document.getElementById(validatingDIV).innerHTML = '<img id="tick" src="http://127.0.0.1/WPBSS/images/red_tick.jpg" />' +
-		'&nbsp;' + file.name + validateMessage +" Choose another one file &nbsp;"; 
-	}
-}
