@@ -237,7 +237,13 @@ class Motif:
 	def _createLOGO(self):
 	
 		homedir = os.path.expanduser('~')
-		LOGOpath = homedir+'/External_Data_SC/LOGO/'+self.name+'.logo.txt'
+		
+		if (self.format=="Transfac"):
+			LOGOpath = homedir+'/Python/External_Data_SC/LOGO_T/Temp.logo.txt'
+			LOGOpng = homedir+'/Python/External_Data_SC/LOGO_T/'+self.name+'.logo.png'
+		if (self.format=="Jaspar"):
+			LOGOpath = homedir+'/Python/External_Data_SC/LOGO_J/Temp.logo.txt'
+			LOGOpng = homedir+'/Python/External_Data_SC/LOGO_J/'+self.name+'.logo.png'
 		
 		ftemp = open(LOGOpath, 'w')
 		for seq in self.validSeqs:
@@ -246,10 +252,8 @@ class Motif:
 			ftemp.write(content)
 		ftemp.close()
 		
-		LOGOpng = homedir+'/Python/External_Data_SC/LOGO/'+self.name+'.logo.png'
+		
 		os.system('weblogo -f ' + LOGOpath + ' -o ' + LOGOpng + ' -F png')
-		
-		
 		
 		return LOGOpng
 
