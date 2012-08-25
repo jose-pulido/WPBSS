@@ -23,7 +23,7 @@ def generate_head():
 	add_webTitle("WPBSS")
 	add_css("sheet1.css")
 	add_javascript("jquery-1.7.1.js")
-	add_javascript("funct3.js")					#### OJO QUE LO HE CAMBIADO PARA HACER PRUEBAS ####
+	add_javascript("funct5.js")					#### OJO QUE LO HE CAMBIADO PARA HACER PRUEBAS ####
 	print "</head>"
 
 def generate_header(header_content):
@@ -80,9 +80,10 @@ def generate_body():
 	print "<body>"
 	print generate_DIV("section1", section1DIVcontent)
 	print generate_DIV("section2", section2content1+section2content2)
+	print generate_DIV("results", "RESULTADOS")
 	#generate_DIV
 	print "</body>"
-	mybody1 = "<body>"+generate_DIV("section1", section1DIVcontent)+generate_DIV("section2", section2content1+section2content2)+"</body>"
+	mybody1 = "<body>"+generate_DIV("section1", section1DIVcontent)+generate_DIV("section2", section2content1+section2content2)+generate_DIV("results", "RESULTADOS")+"</body>"
 	return mybody1
 
 
@@ -113,7 +114,7 @@ def main():
 			open(user_upload_path + fn, 'wb').write(FASTAitem.file.read())
 			fn2 = os.path.basename(MATRIXitem.filename.replace("\\", "/" ))
 			open(user_upload_path + fn2, 'wb').write(MATRIXitem.file.read())
-			message = 'The file "' + fn + '" was uploaded successfully'
+			message = 'The files "' + fn + ' and '+ fn2 + '" were uploaded successfully'
 			
 		else:
 			message = 'No file was uploaded'

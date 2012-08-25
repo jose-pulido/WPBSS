@@ -18,10 +18,10 @@ import utils
 
 homedir = os.path.expanduser('~')
 user_upload_path = '/tmp/'
-LOGOpath = homedir+'/External_Data_SC/LOGO/'
+LOGOpath = '/External_Data_SC/LOGO/'
 #TRANSFACpath = homedir+'/Python/External_Data_SC/TRANSFAC/matrix_seqs/test/'
 #JASPAR_sequencesPath = homedir+'/Python/External_Data_SC/JASPAR/sequences/'
-TRANSFACpath = homedir+'/External_Data_SC/TRANSFAC/matrix_seqs/test/'
+TRANSFACpath = homedir+'/External_Data_SC/TRANSFAC/matrix_seqs/'
 JASPAR_sequencesPath = homedir+'/External_Data_SC/JASPAR/sequences/'
 
 print "Content-type:text/html"
@@ -74,15 +74,23 @@ def createTableOfResults(results):
 	headerRow = [hr1_1.write(), hr1_2.write(), hr1_3.write(), hr1_4.write(), hr1_5.write()]
 	tableOfResults.append(headerRow)
 	
+	cont = 1
 	for result in results:
-		r1_1 = module_Web.Cell(result.name, classtype="stuffResult")
+		if result.format == 'Transfac':
+			logo = LOGOpath + 'LOGO_T/'
+		else:
+			logo = LOGOpath + 'LOGO_J/'
+			
+		logo_img = 	module_Web.Image(result.name + '.logo.png', directory = logo, classtype="logo_img")
+		
+		r1_1 = module_Web.Cell(str(cont)+'.'+'\t'+result.name, classtype="stuffResult")
 		r1_2 = module_Web.Cell(result.format, classtype="stuffResult")
 		r1_3 = module_Web.Cell(result.BSSequence, classtype="stuffResult")
 		r1_4 = module_Web.Cell( str(result.BestScore), classtype="stuffResult")
-		r1_5 = module_Web.Cell( '', classtype="stuffResult")
-		row = [r1_1.write(), r1_2.write(), r1_3.write(), r1_4.write()]
+		r1_5 = module_Web.Cell( logo_img.write(), classtype="stuffResult")
+		row = [r1_1.write(), r1_2.write(), r1_3.write(), r1_4.write(), r1_5.write()]
 		tableOfResults.append(row)
-	
+		cont += 1
 	return 	tableOfResults
 
 
@@ -131,8 +139,8 @@ def generate_HTML():
 	td4_3 = module_Web.Cell('bla bla credits', classtype="stuff")
 	row4 = [td4_1.write(), td4_2.write(), td4_3.write()]
 	
-	table_contentKK = [row1, row2, row3, row4]
-	tesTable = module_Web.TableKK(table_contentKK,  classtype="main")
+	table_content = [row1, row2, row3, row4]
+	tesTable = module_Web.Table(table_content,  classtype="main")
 	tabletest = module_Web.DIV(tesTable.write(), _id="tablerize")
 	#table_content = [td1_1.write(), td1_2.write(), td1_3.write(), td2_1.write(), td2_2.write(), td2_3.write(), td3_1.write(), td3_2.write(), td3_3.write(), td4_1.write(), td4_2.write(), td4_3.write()]
 	#table1x3 = module_Web.Table(4,3, table_content,  classtype="main")
@@ -159,8 +167,6 @@ def main():
 	form = cgi.FieldStorage()
 	myWeb = generate_HTML()
 	
-	transfac_motifs = []
-	jaspar_motifs = []
 	omf = []
 
 	if ((form.has_key('fileFASTA'))and(form.has_key('fileMATRIX'))):
@@ -206,8 +212,12 @@ def main():
    				   				 				
 				message = '<br>' + message + '<br>' + str(len(jaspar_motifs))
 		
-			#if form.getvalue('userownfile'):
-   			#	omf.append(WebMotif(user_upload_path+fh_MATRIX, 'Transfac'))
+			if form.getvalue('userownfile'):
+			
+						
+   				omf = WebMotif(user_upload_path+fh_MATRIX, 'Transfac')
+   				if omf.validMotif:
+					results.append( Result(omf, seqs) )
 			#	message = '<br>' + message + '<br>' + str(len(omf))
 				
 			#else:
@@ -220,7 +230,7 @@ def main():
 			
 		
 		listOfResults = createTableOfResults(sorted(results, key=lambda result: result.BestScore, reverse = True))
-		TableOfResults = module_Web.TableKK(listOfResults,  classtype="mainResult")
+		TableOfResults = module_Web.Table(listOfResults,  classtype="mainResult")
 		DIVofResults = module_Web.DIV(TableOfResults.write(), _id="tablerizeResult")
 		#DIVofResults = module_Web.DIV(message, _id="tablerize")
 		webResults = myWeb

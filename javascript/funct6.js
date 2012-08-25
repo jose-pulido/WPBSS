@@ -242,12 +242,12 @@ function FindFormat(lines) {
 	if (lines[0].slice(0,2)=="AC") {							//Check the first line of a block.
 			format = "TRANSFAC";								//Block error: it doesn't begin with a header line
 
-	}else if (lines[0][0]==">"){
-		if (lines[1][0]=="A"){
-			format = "JASPAR";
-		}else{
-			format ="RAW";
-		}														//Check the body of the block. Distinguish between RAW format and JASPAR format		
+	//}else if (lines[0][0]==">"){
+	//	if (lines[1][0]=="A"){
+	//		format = "JASPAR";
+	//	}else{
+	//		format ="RAW";
+	//	}														//Check the body of the block. Distinguish between RAW format and JASPAR format		
 	}else {
 		format = "ERROR";	
 	}
@@ -358,7 +358,7 @@ function validateMatrix(data, file, validatingDIV, fileid, uploadBUTTON) {
 			validateMessage = " - successfully validated";			
 			break;
 		case -1:
-			validateMessage = " - Error during the validation: file format not supported ";			
+			validateMessage = " - Error during the validation: file format not supported. ";			
 			break;
 		case -2:
 			validateMessage = " - Error during the validation: HEADER not found for that format ";			

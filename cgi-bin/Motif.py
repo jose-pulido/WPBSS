@@ -1,3 +1,8 @@
+"""
+Module with classes definitions and methods for creating the Motifs
+"""
+__docformat__ = "restructuredtext en"
+
 import utils
 import types
 import sys, os
