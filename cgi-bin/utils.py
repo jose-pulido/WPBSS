@@ -1,4 +1,5 @@
 import types
+from Sequence import *
 
 def EOF(f):
 	pos = f.tell()					#f.tell() returns the current position of the file read/write pointer within the file (Integer Bytes).
@@ -15,25 +16,48 @@ def decideFSMorNot(mat):
 		if sum(mat[i,:]) > 1.5: return True
 	return False
 	
-def readSeq(fileIn):									
-	f = open(fileIn)
+#def readSeq(fileIn):									
+#	f = open(fileIn)
 	#return f.readline().upper().replace('\n','')
 	#myseqs = []
 	#for line in f:													#seqs-size LIMITATION to one-line
 	#	if (line[0] !=	'>'):
 	#		myseqs.append(line.upper().replace('\n',''))
-	lines = f.readlines()
-	myseqs = []
+#	lines = f.readlines()
+#	myseqs = []
+#	seq = ""
+#	for l in range(len(lines)):
+#		if ((lines[l][0] == '>')):
+#			if seq:
+#				myseqs.append(seq)
+#				seq=""	
+#		else:
+#			seq = seq + lines[l].upper().replace('\n','')
+#	myseqs.append(seq)	
+#	return myseqs
+
+def readSeq(fileIn):									
+	f = open(fileIn)
+	Seqs = []
 	seq = ""
-	for l in range(len(lines)):
-		if ((lines[l][0] == '>')):
+	line = f.readline()
+		
+	while line:
+		if (line[0] == '>'):
+			
 			if seq:
-				myseqs.append(seq)
-				seq=""	
+				Seqs.append(Sequence(name, seq))
+				seq=""
+					
+			name = line.replace('\n','')
 		else:
-			seq = seq + lines[l].upper().replace('\n','')
-	myseqs.append(seq)	
-	return myseqs
+			seq = seq + line.upper().replace('\n','')
+			
+		line = f.readline()
+	if (name and seq):
+		Seqs.append(Sequence(name, seq))
+	return Seqs
+
 
 def computeMaxMin(A,row):
 	_max = -1

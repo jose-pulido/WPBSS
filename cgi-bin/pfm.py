@@ -21,7 +21,7 @@ user_upload_path = '/tmp/'
 LOGOpath = '/External_Data_SC/LOGO/'
 #TRANSFACpath = homedir+'/Python/External_Data_SC/TRANSFAC/matrix_seqs/test/'
 #JASPAR_sequencesPath = homedir+'/Python/External_Data_SC/JASPAR/sequences/'
-TRANSFACpath = homedir+'/External_Data_SC/TRANSFAC/matrix_seqs/'
+TRANSFACpath = homedir+'/External_Data_SC/TRANSFAC/matrix_seqs/test/'
 JASPAR_sequencesPath = homedir+'/External_Data_SC/JASPAR/sequences/'
 
 print "Content-type:text/html"
@@ -78,16 +78,20 @@ def createTableOfResults(results):
 	for result in results:
 		if result.format == 'Transfac':
 			logo = LOGOpath + 'LOGO_T/'
+			
+		elif result.format == 'Jaspar':
+			logo = LOGOpath + 'LOGO_J/'	
+			
 		else:
-			logo = LOGOpath + 'LOGO_J/'
+			logo = LOGOpath + 'LOGO_U/'
 			
 		logo_img = 	module_Web.Image(result.name + '.logo.png', directory = logo, classtype="logo_img")
 		
-		r1_1 = module_Web.Cell(str(cont)+'.'+'\t'+result.name, classtype="stuffResult")
-		r1_2 = module_Web.Cell(result.format, classtype="stuffResult")
-		r1_3 = module_Web.Cell(result.BSSequence, classtype="stuffResult")
-		r1_4 = module_Web.Cell( str(result.BestScore), classtype="stuffResult")
-		r1_5 = module_Web.Cell( logo_img.write(), classtype="stuffResult")
+		r1_1 = module_Web.Cell(str(cont)+'.'+'\t'+result.name, classtype="nameResult")
+		r1_2 = module_Web.Cell(result.format, classtype="formatResult")
+		r1_3 = module_Web.Cell(result.location[0] + 2*'<br>' + result.location[1] + '<b>' + result.BSSequence + '</b>' + result.location[2], classtype="locatedSEQ")
+		r1_4 = module_Web.Cell( str(result.BestScore) + ',  ' + str(result.length), classtype="scoreResult")
+		r1_5 = module_Web.Cell( logo_img.write(), classtype="logoResult")
 		row = [r1_1.write(), r1_2.write(), r1_3.write(), r1_4.write(), r1_5.write()]
 		tableOfResults.append(row)
 		cont += 1
@@ -215,7 +219,7 @@ def main():
 			if form.getvalue('userownfile'):
 			
 						
-   				omf = WebMotif(user_upload_path+fh_MATRIX, 'Transfac')
+   				omf = WebMotif(user_upload_path+fh_MATRIX, 'User')
    				if omf.validMotif:
 					results.append( Result(omf, seqs) )
 			#	message = '<br>' + message + '<br>' + str(len(omf))

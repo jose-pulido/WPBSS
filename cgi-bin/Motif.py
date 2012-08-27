@@ -1,8 +1,3 @@
-"""
-Module with classes definitions and methods for creating the Motifs
-"""
-__docformat__ = "restructuredtext en"
-
 import utils
 import types
 import sys, os
@@ -244,11 +239,16 @@ class Motif:
 		homedir = os.path.expanduser('~')
 		
 		if (self.format=="Transfac"):
-			LOGOpath = homedir+'/Python/External_Data_SC/LOGO_T/Temp.logo.txt'
-			LOGOpng = homedir+'/Python/External_Data_SC/LOGO_T/'+self.name+'.logo.png'
+			LOGOpath = homedir+'/External_Data_SC/LOGO/LOGO_T/Temp.logo.txt'
+			LOGOpng = homedir+'/External_Data_SC/LOGO/LOGO_T/'+self.name+'.logo.png'
+			
 		if (self.format=="Jaspar"):
-			LOGOpath = homedir+'/Python/External_Data_SC/LOGO_J/Temp.logo.txt'
-			LOGOpng = homedir+'/Python/External_Data_SC/LOGO_J/'+self.name+'.logo.png'
+			LOGOpath = homedir+'/External_Data_SC/LOGO/LOGO_J/Temp.logo.txt'
+			LOGOpng = homedir+'/External_Data_SC/LOGO/LOGO_J/'+self.name+'.logo.png'
+			
+		if (self.format=="User"):
+			LOGOpath = homedir+'/External_Data_SC/LOGO/LOGO_U/Temp.logo.txt'
+			LOGOpng = homedir+'/External_Data_SC/LOGO/LOGO_U/'+ self.name+ '.logo.png'	
 		
 		ftemp = open(LOGOpath, 'w')
 		for seq in self.validSeqs:
@@ -261,12 +261,20 @@ class Motif:
 		os.system('weblogo -f ' + LOGOpath + ' -o ' + LOGOpng + ' -F png')
 		
 		return LOGOpng
+		
+		
+		
+		
+		
+		
+		
 
 	def readFromFile(self,fileIn, format):
 		"""Specifies how to read nd fulfill the Motif depending on the format"""
 		
 		allowed_transfac_Formats = ["Transfac", "transfac"]
 		allowed_jaspar_Formats = ["Jaspar", "jaspar"]
+		allowed_user_Formats = ["User", "user"]
 		#if format not in allowedFormats:
 		#	raise sdalfjasd
 		if format in allowed_transfac_Formats:
@@ -277,9 +285,10 @@ class Motif:
 		
 			self._readJasparFile(fileIn)
 			
-		else:
-			self._OldReadFile(fileIn)
-			
+		elif format in allowed_user_Formats:
+		
+			self._readTransfacFile(fileIn)
+			self.LOGOpath = self._createLOGO()
 
 	def _readJasparFile(self,fileIn):									#Read a Jaspar formatted file and fill the motif object properly
 		"""Read a Jaspar formatted file and fill the motif object properly"""

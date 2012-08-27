@@ -37,50 +37,9 @@ width:250px;  /*When you scale one axis specifying the number of px, HTML automa
 
 }
 
-/********************/
-/*#section1 {
-	clear: left;
-	border: 1.5px solid orange;
-	height:120px;
-}
-
-nav {
-	float:left;
-	width: 10%;
-}
-
-nav {
-	border: 1.5px solid red;
-	text-align: left;
-}
-
-.menu {
-	list-style: none;	
-	margin:0;
-	padding:0.2em;
-	font-size:1.3em;
-	
-}
-
-nav li a{
-	text-decoration: none;
-	color: #FFFFFF;
-}
-
-nav li a:hover {
-	color: orange;
-}
-
-#hueco1 {
-	float:left;
-	margin:0em;
-	width:89.7%;
-	border: 1.5px solid red;
-}*/
-/***********************************************************/
 
 table.main {
-        width: 1500px;
+        width: 1200px;
         background: #FFF5B8;
         border-spacing: 20px;
         border-style: none;
@@ -105,34 +64,72 @@ td.stuff {
 /***********************************************************/
 
 table.mainResult {
-        width: 1500px;
+        width: 1200px;
         background: #FFF5B8;
         border-spacing: 20px;
         border-style: none;
 }
-td {
+/*td {
         width: 20%;
         border-width: 0px;
         border-style: none;
-        
         text-align: top;
-        vertical-align: top;
-}
+        vertical-align: middle;
+        
+        font-size: 22px;
+        text-align: center;
+        vertical-align: middle;
+}*/
+
+
 td.headerResult {
+		width: 20%;
         background: #FFAD33  ;
         padding: 5px;
         text-align: center;
         font-size: 24px;
         font-weight:bold
 }
-td.stuffResult {
+
+td.nameResult {
+        width: 20%;
+        border:1px solid #FFAD33;
         font-size: 22px;
         text-align: center;
         vertical-align: middle;
-        border:1px solid #FFAD33;
-        
+        font-family: Arial, Helvetica, sans-serif;
 }
 
+td.formatResult {
+        width: 20%;
+        border:1px solid #FFAD33;
+        font-size: 22px;
+        text-align: center;
+        vertical-align: middle;
+        font-family: 'Tangerine', serif;
+}
+
+
+td.locatedSEQ {
+		width: 20%;
+        font-size: 18px;
+        text-align: center;
+        vertical-align: middle;
+        border:1px solid #FFAD33;
+}
+
+td.scoreResult {
+        width: 20%;
+        border:1px solid #FFAD33;
+        font-size: 22px;
+        text-align: center;
+        vertical-align: middle;
+}
+
+td.logoResult {
+        width: 20%;
+        border:1px solid #FFAD33;
+}
 
 /***********************************************************/
 
@@ -140,7 +137,7 @@ td.stuffResult {
 body {
 	/*background: #FFF5B8;
 	border: 1.5px solid #c7c7c7;*/
-	width: 1500px;
+	width: 1200px;
 	margin:0 auto; /*center the whole page*/
 	font: 1em 'OstrichSansRoundedMedium';
 	
