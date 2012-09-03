@@ -31,8 +31,11 @@ class Result:
 					preSeq = ''
 					postSeq = ''
 					
-					for k in range(index):
-						preSeq = preSeq + s.seq[k].lower()
+					if index==0:
+						k =0
+					else:
+						for k in range(index):
+							preSeq = preSeq + s.seq[k].lower()
 						
 					k = k+len(self.BSSequence)+1
 					while k<len(s.seq):
