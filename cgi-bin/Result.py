@@ -7,6 +7,7 @@ class Result:
 	def __init__(self, motif, seqs):
 		
 		self.name = motif.name
+		self.ID = motif.ID
 		self.format =  motif.format
 		self.dic = motif.SC_intuit_Web(seqs)
 		self.isEmpty = True		

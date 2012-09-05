@@ -87,10 +87,10 @@ def createTableOfResults(results):
 			
 		logo_img = 	module_Web.Image(result.name + '.logo.png', directory = logo, classtype="logo_img")
 		
-		r1_1 = module_Web.Cell(str(cont)+'.'+'\t'+result.name, classtype="nameResult")
+		r1_1 = module_Web.Cell(str(cont)+'.' + '\t' + result.name + '<br>' + result.ID, classtype="nameResult")
 		r1_2 = module_Web.Cell(result.format, classtype="formatResult")
 		r1_3 = module_Web.Cell(result.location[0] + 2*'<br>' + result.location[1] + '<b>' + result.BSSequence + '</b>' + result.location[2], classtype="locatedSEQ")
-		r1_4 = module_Web.Cell( str(result.BestScore) + ',  ' + str(result.length), classtype="scoreResult")
+		r1_4 = module_Web.Cell( str(result.BestScore), classtype="scoreResult")
 		r1_5 = module_Web.Cell( logo_img.write(), classtype="logoResult")
 		row = [r1_1.write(), r1_2.write(), r1_3.write(), r1_4.write(), r1_5.write()]
 		tableOfResults.append(row)
@@ -204,7 +204,7 @@ def main():
 					results.append( Result(m, seqs) )
 					
 					
-				message = '<br>' + message + '<br>' + 'NUMERO DE MATRICES TRANSFAC ' + str(len(transfac_NOT_valid)) + homedir
+				#message = '<br>' + message + '<br>' + 'NUMERO DE MATRICES TRANSFAC ' + str(len(transfac_NOT_valid)) + homedir
 									
 			if form.getvalue('jaspar'):
 			
@@ -214,7 +214,7 @@ def main():
 					results.append( Result(j, seqs) )
    				
    				   				 				
-				message = '<br>' + message + '<br>' + str(len(jaspar_motifs))
+				#message = '<br>' + message + '<br>' + str(len(jaspar_motifs))
 		
 			if form.getvalue('userownfile'):
 			
